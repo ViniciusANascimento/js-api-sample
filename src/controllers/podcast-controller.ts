@@ -20,6 +20,6 @@ export const getFilterEpisodes = async(
 		const queryString = request.url?.split("?p=")[1] || "";
 		const content = await serviceFilterEpisodes(queryString)
 
-		response.writeHead(200,{'Content-Type': "application/json"});
+		response.writeHead(StatusCode.OK,{'Content-Type': "application/json"});
 		response.end(JSON.stringify(content));
 }
