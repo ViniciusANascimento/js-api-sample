@@ -3,7 +3,9 @@ import path from "path";
 import { PodcastModel } from "../models/podcast-model";
 
 
-const pathData = path.join(__dirname,"../repositories/podcast-repository.json");
+const pathData = path.join(__dirname,"../repositories/podcast.json");
+
+
 
 export const repositoryPodcast = 
     async (podcastName?:string):Promise<PodcastModel[]> =>

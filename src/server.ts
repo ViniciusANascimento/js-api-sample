@@ -1,5 +1,6 @@
 import * as http from 'http';
 import { getFilterEpisodes, getListEpisodes } from './controllers/podcast-controller';
+import { Routes } from './routes/routes';
 const server =
 
 http.createServer(
@@ -9,12 +10,12 @@ http.createServer(
 			const [baseUrl, queryString] = request.url?.split("?") ?? ["",""]
 
 			//Listar podcasts
-			if(request.method === "GET" && baseUrl === "/api/list"){
+			if(request.method === "GET" && baseUrl === Routes.LIST){
 				await getListEpisodes(request, response);
 			}
 
 			//Trazer com filtros.
-			if(request.method === "GET" && baseUrl === "/api/episode"){
+			if(request.method === "GET" && baseUrl === Routes.EPISODE){
 				await getFilterEpisodes(request, response);
 			}
 		}
