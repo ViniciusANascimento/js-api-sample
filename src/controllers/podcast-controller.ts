@@ -17,8 +17,7 @@ export const getFilterEpisodes = async(
 	request: IncomingMessage,
 	response: ServerResponse
 	) =>{
-		const queryString = request.url?.split("?p=")[1] || "";
-		const content = await serviceFilterEpisodes(queryString)
+		const content = await serviceFilterEpisodes(request.url)
 
 		response.writeHead(StatusCode.OK,{'Content-Type': "application/json"});
 		response.end(JSON.stringify(content));
