@@ -1,12 +1,21 @@
 import * as http from 'http';
-import { getListEpisodes } from './controllers/podcast-controller';
+import { getFilterEpisodes, getListEpisodes } from './controllers/podcast-controller';
 const server =
 
 http.createServer(
 	async (request:http.IncomingMessage,response:http.ServerResponse) =>
-		{
-			if(request.method === "GET"){
+		{	
+			//queryString
+			const [baseUrl, queryString] = request.url?.split("?") ?? ["",""]
+
+			//Listar podcasts
+			if(request.method === "GET" && baseUrl === "/api/list"){
 				await getListEpisodes(request, response);
+			}
+
+			//Trazer com filtros.
+			if(request.method === "GET" && baseUrl === "/api/episode"){
+				await getFilterEpisodes(request, response);
 			}
 		}
 );

@@ -33,3 +33,5 @@ Podcast feitos em vídeo
 	},
 	]
 	```
+
+	GET: Retonarna lista de episodios de podcasts.
