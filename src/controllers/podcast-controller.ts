@@ -1,6 +1,7 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import { serviceFilterEpisodes } from '../services/filter-episodes-service';
 import { serviceListEpisodes } from '../services/list-episodes-service';
+import { StatusCode } from '../utils/status-code';
 
 export const getListEpisodes = async (
 	request : IncomingMessage,
@@ -8,7 +9,7 @@ export const getListEpisodes = async (
 	) => {
 	const content = await serviceListEpisodes();
 
-	response.writeHead(200,{'Content-Type': "application/json"});
+	response.writeHead(StatusCode.OK,{'Content-Type': "application/json"});
 	response.end(JSON.stringify(content));
 }
 
