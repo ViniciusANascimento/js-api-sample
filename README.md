@@ -1,5 +1,5 @@
 
-# Repositorio de API SAMPLE.
+# Repositorio de API Podcast.
 
 Esta API foi desenvolvida utilizando os recursos puros do NodeJS com a utilização do TypeScript.
 
