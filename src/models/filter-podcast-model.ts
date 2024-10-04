@@ -1,6 +1,6 @@
 import { PodcastModel } from "./podcast-model";
 
-export interface FilterPodCastModel{
+export interface PodacastTransferDTO{
 	statusCode: number;
 	body: PodcastModel[];
 
